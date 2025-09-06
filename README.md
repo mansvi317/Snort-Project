@@ -77,6 +77,10 @@ alert tcp any any -> any any (msg:"Credential Theft - Thunderbird Email Dump"; c
 
 ## Step 3 – Run Snort in Detection Mode
 
+**To convert pcap file to pcapng**
+   ```bash
+   editcap 'Case Study 3_Remcos-RAT.pcapCase Study 3_Remcos-RAT.pcap' CaseStudy3RemcosRat.pcapng
+   ```
 1. **Start Snort to monitor the network interface:**
 
    ```bash
@@ -85,7 +89,7 @@ alert tcp any any -> any any (msg:"Credential Theft - Thunderbird Email Dump"; c
 2. **Replay the PCAP file in a separate terminal:**
    
    ```bash
-   sudo tcpreplay --intf1=ens33 sample.pcapng
+   sudo tcpreplay -i ens33 CaseStudy3RemcosRat.pcapng
    ```
 
 ## Step 4 – Alerts and Analysis
